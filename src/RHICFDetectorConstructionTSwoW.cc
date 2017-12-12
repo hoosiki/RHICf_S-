@@ -1,5 +1,5 @@
 //Kinds of Detector: ZDC(PHENIX), STARZDC, BBC, STARBBC, PHENIXPIPE, STARPIPE
-#include "RHICFDetectorConstruction.hh"
+#include "RHICFDetectorConstructionTSwoW.hh"
 #include "RHICFManager.hh"
 //Junsang****#include "MagneticField.hh"
 #include "G4PVReplica.hh"
@@ -48,18 +48,18 @@
 #include "G4GDMLParser.hh"
 #include "G4UserLimits.hh"
 using namespace CLHEP;
-G4ThreadLocal MagneticField* RHICFDetectorConstruction::fMagneticField = 0;
-G4ThreadLocal G4FieldManager* RHICFDetectorConstruction::fFieldMgr = 0;
+G4ThreadLocal MagneticField* RHICFDetectorConstructionTSwoW::fMagneticField = 0;
+G4ThreadLocal G4FieldManager* RHICFDetectorConstructionTSwoW::fFieldMgr = 0;
 
-RHICFDetectorConstruction::RHICFDetectorConstruction ( ):G4VUserDetectorConstruction(),  fVisAttributes()
+RHICFDetectorConstructionTSwoW::RHICFDetectorConstructionTSwoW ( ):G4VUserDetectorConstruction(),  fVisAttributes()
 {
 }
 
-RHICFDetectorConstruction::~RHICFDetectorConstruction ( )
+RHICFDetectorConstructionTSwoW::~RHICFDetectorConstructionTSwoW ( )
 {
 }
 
-G4VPhysicalVolume* RHICFDetectorConstruction::Construct ( )
+G4VPhysicalVolume* RHICFDetectorConstructionTSwoW::Construct ( )
 {
 
     /*-*/G4GeometryManager::GetInstance()-> OpenGeometry();
@@ -109,9 +109,9 @@ G4VPhysicalVolume* RHICFDetectorConstruction::Construct ( )
 
 }
 
-void RHICFDetectorConstruction::ConstructSDandField()
+void RHICFDetectorConstructionTSwoW::ConstructSDandField()
 {
-    G4SDManager::GetSDMpointer() -> SetVerboseLevel(1);
+    G4SDManager::GetSDMpointer() -> SetVerboseLevel(0);
     if(G4PhysicalVolumeStore::GetInstance()->GetVolume("Vol-Arm1_PV",false))
     {
         SetSDForARM1();
@@ -123,13 +123,13 @@ void RHICFDetectorConstruction::ConstructSDandField()
     }
 }
 
-void RHICFDetectorConstruction::SetMagneticField(G4LogicalVolume* logical )
+void RHICFDetectorConstructionTSwoW::SetMagneticField(G4LogicalVolume* logical )
 {
 
 
 }
 
-void RHICFDetectorConstruction::SetDEScorer(G4String string)
+void RHICFDetectorConstructionTSwoW::SetDEScorer(G4String string)
 {
     /*-*///DEFINE SD FOR STORING DE(Deposit energy)
     /*-*/G4MultiFunctionalDetector* SDforDE = new G4MultiFunctionalDetector(string);
@@ -140,7 +140,7 @@ void RHICFDetectorConstruction::SetDEScorer(G4String string)
     /*-*/SetSensitiveDetector(string, SDforDE);
 }
 
-void RHICFDetectorConstruction::SetDENOPScorer(G4String string)
+void RHICFDetectorConstructionTSwoW::SetDENOPScorer(G4String string)
 {
     /*-*///DEFINE SD FOR STORING DE AND NOP(Number of photon)
     /*-*/G4MultiFunctionalDetector* SDforDE = new G4MultiFunctionalDetector(string);
@@ -155,14 +155,14 @@ void RHICFDetectorConstruction::SetDENOPScorer(G4String string)
     /*-*/SetSensitiveDetector(string, SDforDE);
 }
 
-void RHICFDetectorConstruction::SetSDForFrontCounter()
+void RHICFDetectorConstructionTSwoW::SetSDForFrontCounter()
 {
     /*-*/// SETTING FOR SENSITIVE DETECTOR OF FRONT COUNTER
     /*-*/SetDENOPScorer("Vol-frontcounter-small");
     /*-*/SetDENOPScorer("Vol-frontcounter-large");
 }
 
-void RHICFDetectorConstruction::SetSDForARM1() //FUNCTION FOR SETTING SD OF ARM1
+void RHICFDetectorConstructionTSwoW::SetSDForARM1() //FUNCTION FOR SETTING SD OF ARM1
 {
     /*-*/// FOR DEPOSIT ENERGY
     for (int i = 0; i < 10; i++) 
@@ -211,7 +211,7 @@ void RHICFDetectorConstruction::SetSDForARM1() //FUNCTION FOR SETTING SD OF ARM1
     }
 }
 
-void RHICFDetectorConstruction::SetSDForSTARZDC() //FUNCTION FOR SETTING SD FOR STARZDC
+void RHICFDetectorConstructionTSwoW::SetSDForSTARZDC() //FUNCTION FOR SETTING SD FOR STARZDC
 {
     /*-*/// FOR DEPOSIT ENERGY
     for (int i = 0; i < 3; i++) 
