@@ -98,9 +98,9 @@ G4VPhysicalVolume* RHICFDetectorConstructionTOPwoW::Construct ( )
         FieldMan->CreateChordFinder(DXmagnetField);
     }
 
-    for(G4PhysicalVolumeStore::iterator it=pvs->begin(); it!=pvs->end(); it++){
-        if(1) G4cout << (*it)->GetName() << G4endl;
-    }
+    //Junsang****for(G4PhysicalVolumeStore::iterator it=pvs->begin(); it!=pvs->end(); it++){
+        //Junsang****if(1) G4cout << (*it)->GetName() << G4endl;
+    //Junsang****}
     //Junsang****for(G4LogicalVolumeStore::iterator it=lvs->begin(); it!=lvs->end(); it++){
         //Junsang****if(1) G4cout << (*it)->GetName() << G4endl;
     //Junsang****}
