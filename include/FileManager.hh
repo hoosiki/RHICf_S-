@@ -15,6 +15,7 @@ class FileManager {
         FileManager();
         std::string FileName;
         std::string SavingPath;
+        std::string GeometryPath;
         std::string PathFortmp;
         std::string PathForSIMDATA;
         std::string PathForANALYSIS;
@@ -38,6 +39,7 @@ class FileManager {
         std::string GetTime(){ return Time;};
         std::string GetPID(){ return std::to_string(PID);};
         std::string GetSavingPath(){ return SavingPath;};
+        std::string GetGeometryPath(){ return GeometryPath;};
         std::string GetPathFortmp(){ return PathFortmp;};
         std::string GetPathForSIMDATA(){ return PathForSIMDATA;};
         std::string GetPathForANALYSIS(){ return PathForANALYSIS;};

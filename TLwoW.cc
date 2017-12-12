@@ -1,4 +1,4 @@
-#include "RHICFDetectorConstruction.hh"
+#include "RHICFDetectorConstructionTLwoW.hh"
 #include "RHICFActionInitialization.hh"
 #include "RHICFPhysicsList.hh"
 #include "Randomize.hh"
@@ -30,7 +30,7 @@ int main(int argc, char** argv)
 //Junsang****#else
     auto runManager = new G4RunManager;
 //Junsang****#endif
-    runManager -> SetUserInitialization(new RHICFDetectorConstruction());
+    runManager -> SetUserInitialization(new RHICFDetectorConstructionTLwoW());
 
 
     runManager -> SetUserInitialization(new RHICFPhysicsList("QGSP_BERT"));

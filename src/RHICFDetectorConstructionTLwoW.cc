@@ -6,6 +6,7 @@
 #include "G4VSolid.hh"
 #include "G4TwoVector.hh"
 #include "G4ExtrudedSolid.hh"
+#include "FileManager.hh"
 #include "G4Polyhedra.hh"
 #include "G4Material.hh"
 #include "G4NistManager.hh"
@@ -87,7 +88,9 @@ G4VPhysicalVolume* RHICFDetectorConstructionTLwoW::Construct ( )
     int iside=0;
     int ibbc=0;
     G4GDMLParser fParser;
-    fParser.Read("./geometry/full_tl.gdml");
+    //Junsang****fParser.Read("./geometry/full_tl.gdml");
+    G4String geo = FileManager::GetInstance()->GetGeometryPath() + "/full_tl.gdml";
+    fParser.Read(geo);
     fWorldPhysical = fParser.GetWorldVolume();
 
     if (G4PhysicalVolumeStore::GetInstance()->GetVolume("Vol-DXmagnet-5.5in-vacuum_PV", false)) 

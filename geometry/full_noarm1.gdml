@@ -37,7 +37,7 @@
 	<positionref ref="Pos-world"/>
       </physvol>
       <physvol>
-        <file name="PWDzdc.gdml"/>
+        <file name="PWDzdc_star.gdml"/>
 	<positionref ref="Pos-ZDC"/>
       </physvol>
     </volume>

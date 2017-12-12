@@ -60,7 +60,7 @@ target_link_libraries(eRHICF ${Geant4_LIBRARIES} ${hepmc} ${ROOT_LIBRARIES} ${HE
 # relies on these scripts being in the current working directory.
 #
 set(RHICf_SCRIPTS
-       vis.mac icons.mac init.mac init_vis.mac run1.mac run2.mac vis1.mac run.png)
+       vis.mac icons.mac init.mac init_vis.mac vis1.mac run.png)
 
 
 foreach(_script ${RHICf_SCRIPTS})

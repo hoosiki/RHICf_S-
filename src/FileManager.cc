@@ -100,6 +100,9 @@ FileManager::FileManager()
     tmpStr1 = ""; // set default filename 
     FileName = "data" + Date + Time + GetPID();
 
+    tmpStr1 = ""; // set geometry file directory path
+    tmpStr1 = string(getenv("GEOMETRY_DIR"));
+    GeometryPath = tmpStr1 + "/";
 }
 
 FileManager::~FileManager()

@@ -37,7 +37,6 @@ void RHICFSteppingAction::UserSteppingAction(const G4Step* step)
 
     if(IfGoingThrough("VolGhostSmall_PV",step))
     {
-        G4cout << "VoleGhostSamll_PV" << G4endl;
         ExtractGhostInfo(step);
         if(RHICFManager::GetInstance()->GetParticleName()=="pi0")
         {
