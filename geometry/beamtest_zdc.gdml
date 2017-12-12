@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE gdml [ 
+<!ENTITY gwd "/home/hoosiki/Documents/HEP/rhicf2/geometry/">
+<!ENTITY materials SYSTEM "materials.xml">
+]>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="GDML_3_1_4/schema/gdml.xsd">
+
+  <!-- ******************************* -->
+  <!-- *** Positions and Rotations *** -->
+  <!-- ******************************* -->
+  <define>
+    <variable name="ZDCz"  value="72"/>
+
+    <position name="Pos-world" unit="cm" x="0" y="0" z="0"/>
+    <position name="Pos-ZDC" unit="cm" x="0" y="1.162065" z="ZDCz+70"/>
+    <position name="Pos-Forward" unit="cm" x="0" y="0" z="0.01"/>
+  </define>
+
+  <!-- the content of the materials.xml file will be included here -->
+  &materials;
+
+  <!-- *********************** -->
+  <!-- *** Logical Volumes *** -->
+  <!-- *********************** -->
+  <solids>
+    <box name="Log-world" lunit="m" x="2" y="2" z="200"/>
+    <box name="Log-Forward" lunit="cm" x="10" y="30" z="0.0001"/>  
+  </solids>
+
+  <!-- ************************ -->
+  <!-- *** Physical Volumes *** -->
+  <!-- ************************ -->
+  <structure>
+    <volume name="Vol-Forward">
+      <materialref ref="Air"/>
+      <solidref ref="Log-Forward"/>
+    </volume>
+    <volume name="Vol-world">
+      <materialref ref="Air"/>
+      <solidref ref="Log-world"/>
+      <physvol>
+        <volumeref ref="Vol-Forward"/>
+	<positionref ref="Pos-Forward"/>
+      </physvol>
+      <physvol>
+        <file name="&gwd;zdc.gdml"/>
+	<positionref ref="Pos-ZDC"/>
+      </physvol>
+    </volume>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="Vol-world"/>
+  </setup>
+</gdml>

@@ -1,0 +1,7 @@
+#/RHICfPhysicsList/removePhysics Optical
+#/RHICfPhysicsList/removePhysics Extra
+/RHICfGenerator/select ipuni
+#/RHICfGenerator/select pythia
+/RHICfRunAction/setFileName PYTHIA
+/IPUnibeam/particle proton
+/run/beamOn 100
