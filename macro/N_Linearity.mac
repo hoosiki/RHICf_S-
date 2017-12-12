@@ -1,0 +1,5 @@
+/RHICfGenerator/select ipuni
+/RHICfRunAction/setFileName N_TOP_TS5GeV
+/IPUnibeam/tower Small
+/IPUnibeam/energy 5
+/run/beamOn 1000
