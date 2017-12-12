@@ -44,7 +44,7 @@
 	<positionref ref="Pos-LHCf"/>
       </physvol>
       <physvol>
-        <file name="PWDzdc_star.star.gdml"/>
+        <file name="PWDzdc_star.gdml"/>
 	<positionref ref="Pos-ZDC"/>
       </physvol>
     </volume>
