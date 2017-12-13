@@ -11,7 +11,6 @@
 #include "RHICFManager.hh"
 #include "G4SystemOfUnits.hh"
 #include "TRandom.h"
-#include "TMath.h"
 #include "Randomize.hh"
 
 
