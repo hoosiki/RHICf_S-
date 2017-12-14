@@ -1,0 +1,9 @@
+#/RHICfGenerator/select ipuni
+/RHICfGenerator/select testuni
+#/IPUnibeam/sigmaRange 10
+#/IPUnibeam/shape Circle
+
+/Testbeam/sigmaRange 10
+/Testbeam/shape Circle
+/RHICfRunAction/setFileName test
+/run/beamOn 100
