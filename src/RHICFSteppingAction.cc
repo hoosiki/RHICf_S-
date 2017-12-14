@@ -70,7 +70,7 @@ void RHICFSteppingAction::UserSteppingAction(const G4Step* step)
         }
     }
 
-    if(IfGoingThrough("Vol-tungsten-small_PV1st",step))
+    if(IfGoingThrough("Vol-tungsten-small_1stPV",step))
     {
         ExtractWInfo(step);
         if(RHICFManager::GetInstance()->GetParticleName()=="pi0")
@@ -87,7 +87,7 @@ void RHICFSteppingAction::UserSteppingAction(const G4Step* step)
             }
         }
     }
-    if(IfGoingThrough("Vol-tungsten-large_PV1st", step))
+    if(IfGoingThrough("Vol-tungsten-large_1stPV", step))
     {
         ExtractWInfo(step);
         if(RHICFManager::GetInstance()->GetParticleName()=="pi0")
