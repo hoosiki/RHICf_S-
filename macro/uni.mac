@@ -1,9 +1,17 @@
-#/RHICfGenerator/select ipuni
-/RHICfGenerator/select testuni
+/RHICfGenerator/select ipuni
+/IPUnibeam/shape Diamond
 /IPUnibeam/sigmaRange 20
-#/IPUnibeam/shape Circle
+/IPUnibeam/tower Large
+/IPUnibeam/energy 200
 
+
+#/RHICfGenerator/select testuni
 #/Testbeam/sigmaRange 10
 #/Testbeam/shape Circle
+#/Testbeam/tower Large
+#/Testbeam/energy 200
+
+
+
 /RHICfRunAction/setFileName N_LEAKAGE200GeV
 /run/beamOn 500
