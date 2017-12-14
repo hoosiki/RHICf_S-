@@ -2,7 +2,7 @@
 <!DOCTYPE gdml [ 
 <!ENTITY materials SYSTEM "materials.xml">
 ]>
-<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="GDML_3_1_4/schema/gdml.xsd">
 
     <!-- ******************************* -->
     <!-- *** Positions and Rotations *** -->
