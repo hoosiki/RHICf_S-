@@ -29,6 +29,7 @@ TestInterface::~TestInterface()
 
 void TestInterface::GeneratePrimaryVertex(G4Event* event)
 {
+    G4int tmpevent = 0;
     G4PrimaryVertex* fVertex = new G4PrimaryVertex();
     G4PrimaryParticle* fPrimaryParticle = new G4PrimaryParticle();
     fPrimaryParticle->SetMomentumDirection(G4ThreeVector(0., 0., 1.));
@@ -81,8 +82,10 @@ void TestInterface::GeneratePrimaryVertex(G4Event* event)
 
     fPrimaryParticle-> SetPDGcode(PDGID);
     fPrimaryParticle-> SetTotalEnergy(fEnergy);
+    tmpevent++;
     fVertex-> SetPrimary(fPrimaryParticle);
     event-> AddPrimaryVertex(fVertex);
+    RHICFManager::GetInstance()->SetParticleNumber(tmpevent);
 }
 
 
