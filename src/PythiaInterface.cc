@@ -66,7 +66,6 @@ void PythiaInterface::HepMC2G4(const HepMC::GenEvent* hepmcevt, G4Event* g4event
         g4event-> AddPrimaryVertex(g4vtx);
     }
     RHICFManager::GetInstance()->SetParticleNumber(tmpevent);
-    G4cout <<  "Total particle: " << tmpevent << G4endl;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
