@@ -62,7 +62,6 @@ void IPCenterInterface::GeneratePrimaryVertex(G4Event* event)
         if (Tower=="Small") 
         {
             
-        G4cout << tmpx << ":" << tmpy << G4endl;
             fPrimaryParticle->SetMomentumDirection(UnitVector(G4ThreeVector(tmpdirection.x(), tmpdirection.y()+(RHICFManager::GetInstance()->GetARM1Y()*10.),(RHICFManager::GetInstance()->GetARM1Z()*10.)-120.3)));
         }else
         {
