@@ -62,7 +62,7 @@ void RHICFSteppingAction::UserSteppingAction(const G4Step* step)
         }
     }
 
-    if(IfGoingThrough("Vol-tungsten-small_1stPV",step))
+    if(IfGoingThrough("Vol-tungsten-small1st_PV",step))
     {
         ExtractWInfo(step);
         G4int tmpID = step->GetTrack()->GetParentID();
@@ -75,7 +75,7 @@ void RHICFSteppingAction::UserSteppingAction(const G4Step* step)
             ExtractNeutronSignal(step);
         }
     }
-    if(IfGoingThrough("Vol-tungsten-large_1stPV", step))
+    if(IfGoingThrough("Vol-tungsten-large1st_PV", step))
     {
         ExtractWInfo(step);
         G4int tmpID = step->GetTrack()->GetParentID();
