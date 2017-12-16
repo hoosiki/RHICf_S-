@@ -101,9 +101,9 @@ G4VPhysicalVolume* RHICFDetectorConstructionTLwoW::Construct ( )
         FieldMan->CreateChordFinder(DXmagnetField);
     }
 
-    //Junsang****for(G4PhysicalVolumeStore::iterator it=pvs->begin(); it!=pvs->end(); it++){
-        //Junsang****if(1) G4cout << (*it)->GetName() << G4endl;
-    //Junsang****}
+    for(G4PhysicalVolumeStore::iterator it=pvs->begin(); it!=pvs->end(); it++){
+        if(1) G4cout << (*it)->GetName() << G4endl;
+    }
     //Junsang****for(G4LogicalVolumeStore::iterator it=lvs->begin(); it!=lvs->end(); it++){
         //Junsang****if(1) G4cout << (*it)->GetName() << G4endl;
     //Junsang****}
@@ -114,7 +114,7 @@ G4VPhysicalVolume* RHICFDetectorConstructionTLwoW::Construct ( )
 
 void RHICFDetectorConstructionTLwoW::ConstructSDandField()
 {
-    G4SDManager::GetSDMpointer() -> SetVerboseLevel(0);
+    G4SDManager::GetSDMpointer() -> SetVerboseLevel(1);
     if(G4PhysicalVolumeStore::GetInstance()->GetVolume("Vol-Arm1_PV",false))
     {
         SetSDForARM1();
