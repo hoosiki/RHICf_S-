@@ -43,7 +43,7 @@ void RHICFSteppingAction::UserSteppingAction(const G4Step* step)
         {
             ExtractPionInfo(step,0);
         }
-        if((tmpID<=RHICFManager::GetInstance()->GetParticleNumber()) && (RHICFManager::GetInstance()->GetNameMap()[ftrack->GetTrackID()]=="neutron"))
+        if((tmpID<=RHICFManager::GetInstance()->GetParticleNumber()) && (ftrack->GetParticleDefinition()->GetParticleName()=="neutron") && (RHICFManager::GetInstance()->GetNameMap()[ftrack->GetTrackID()]=="neutron"))
         {
                 ExtractNeutronInfo(step);
         }
@@ -56,7 +56,7 @@ void RHICFSteppingAction::UserSteppingAction(const G4Step* step)
         {
             ExtractPionInfo(step,1);
         }
-        if((tmpID<=RHICFManager::GetInstance()->GetParticleNumber()) && (RHICFManager::GetInstance()->GetNameMap()[ftrack->GetTrackID()]=="neutron"))
+        if((tmpID<=RHICFManager::GetInstance()->GetParticleNumber()) && (ftrack->GetParticleDefinition()->GetParticleName()=="neutron") && (RHICFManager::GetInstance()->GetNameMap()[ftrack->GetTrackID()]=="neutron"))
         {
             ExtractNeutronInfo(step);
         }
@@ -70,7 +70,7 @@ void RHICFSteppingAction::UserSteppingAction(const G4Step* step)
         {
             ExtractPionSignal(step,0);
         }
-        if((tmpID<=RHICFManager::GetInstance()->GetParticleNumber()) && (RHICFManager::GetInstance()->GetNameMap()[ftrack->GetTrackID()]=="neutron"))
+        if((tmpID<=RHICFManager::GetInstance()->GetParticleNumber()) && (ftrack->GetParticleDefinition()->GetParticleName()=="neutron") && (RHICFManager::GetInstance()->GetNameMap()[ftrack->GetTrackID()]=="neutron"))
         {
             ExtractNeutronSignal(step);
         }
@@ -83,7 +83,7 @@ void RHICFSteppingAction::UserSteppingAction(const G4Step* step)
         {
             ExtractPionSignal(step,1);
         }
-        if((tmpID<=RHICFManager::GetInstance()->GetParticleNumber()) && (RHICFManager::GetInstance()->GetNameMap()[ftrack->GetTrackID()]=="neutron"))
+        if((tmpID<=RHICFManager::GetInstance()->GetParticleNumber()) && (ftrack->GetParticleDefinition()->GetParticleName()=="neutron") && (RHICFManager::GetInstance()->GetNameMap()[ftrack->GetTrackID()]=="neutron"))
         {
             ExtractNeutronSignal(step);
         }
