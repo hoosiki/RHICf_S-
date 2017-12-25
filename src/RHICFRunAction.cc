@@ -313,6 +313,7 @@ void RHICFRunAction::NtupleForIP()
     G4AnalysisManager::Instance()->CreateNtupleIColumn(10, "TOWERID");
     G4AnalysisManager::Instance()->CreateNtupleIColumn(10, "RunNumber");
     G4AnalysisManager::Instance()->CreateNtupleIColumn(10, "EventNumber");
+    G4AnalysisManager::Instance()->CreateNtupleIColumn(10, "TrackID");
     G4AnalysisManager::Instance()->FinishNtuple(10);
 
     G4AnalysisManager::Instance()->CreateNtuple("GhostWhenNeutron", "ParticleInformation");
@@ -328,6 +329,7 @@ void RHICFRunAction::NtupleForIP()
     G4AnalysisManager::Instance()->CreateNtupleDColumn(11, "NEUTRONENERGY[GeV]");
     G4AnalysisManager::Instance()->CreateNtupleIColumn(11, "RunNumber");
     G4AnalysisManager::Instance()->CreateNtupleIColumn(11, "EventNumber");
+    G4AnalysisManager::Instance()->CreateNtupleIColumn(11, "TrackID");
     G4AnalysisManager::Instance()->FinishNtuple(11);
 
     G4AnalysisManager::Instance()->CreateNtuple("PionSignal", "ParticleInformation");
@@ -347,6 +349,7 @@ void RHICFRunAction::NtupleForIP()
     G4AnalysisManager::Instance()->CreateNtupleIColumn(12, "TOWERID");
     G4AnalysisManager::Instance()->CreateNtupleIColumn(12, "RunNumber");
     G4AnalysisManager::Instance()->CreateNtupleIColumn(12, "EventNumber");
+    G4AnalysisManager::Instance()->CreateNtupleIColumn(12, "TrackID");
     G4AnalysisManager::Instance()->FinishNtuple(12);
 
     G4AnalysisManager::Instance()->CreateNtuple("NeutronSignal", "ParticleInformation");
@@ -362,6 +365,7 @@ void RHICFRunAction::NtupleForIP()
     G4AnalysisManager::Instance()->CreateNtupleDColumn(13, "NEUTRONENERGY[GeV]");
     G4AnalysisManager::Instance()->CreateNtupleIColumn(13, "RunNumber");
     G4AnalysisManager::Instance()->CreateNtupleIColumn(13, "EventNumber");
+    G4AnalysisManager::Instance()->CreateNtupleIColumn(13, "TrackID");
     G4AnalysisManager::Instance()->FinishNtuple(13);
 
     G4AnalysisManager::Instance()->CreateNtuple("SPINInfo", "Spin pattern");

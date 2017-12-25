@@ -76,7 +76,7 @@ G4VPhysicalVolume* RHICFDetectorConstructionTSwoW::Construct ( )
     RHICFManager::GetInstance()->SetARM1Z(1787);
     //Junsang****RHICFManager::GetInstance()->SetARM1Y((30.1*sqrt(2)+5+24)/10.);//TOP CENTER
     //Junsang****RHICFManager::GetInstance()->SetARM1Y((30.1*sqrt(2)+5)/10.);//TS CENTER
-    RHICFManager::GetInstance()->SetARM1Y(0.);//TS CENTER
+    RHICFManager::GetInstance()->SetARM1Y((30.1*sqrt(2)+5)/10.);//TS CENTER
     
     G4PhysicalVolumeStore* pvs=G4PhysicalVolumeStore::GetInstance();
     G4LogicalVolumeStore* lvs=G4LogicalVolumeStore::GetInstance();

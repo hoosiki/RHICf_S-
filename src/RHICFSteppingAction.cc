@@ -32,11 +32,13 @@ void RHICFSteppingAction::UserSteppingAction(const G4Step* step)
 
     if(IfGoingThrough("VolCircle_PV",step))
     {
+        //Junsang****G4cout << "Circle" << G4endl;
         ExtractGhostCircleInfo(step);
     }
 
     if(IfGoingThrough("VolGhostSmall_PV",step))
     {
+        //Junsang****G4cout << "GhostSmall" << G4endl;
         ExtractGhostInfo(step);
         G4int tmpID = step->GetTrack()->GetParentID();
         if((tmpID<=RHICFManager::GetInstance()->GetParticleNumber()) && (ftrack->GetParticleDefinition()->GetParticleName()=="gamma") && (RHICFManager::GetInstance()->GetNameMap()[tmpID] == "pi0"))
@@ -48,8 +50,9 @@ void RHICFSteppingAction::UserSteppingAction(const G4Step* step)
                 ExtractNeutronInfo(step);
         }
     }
-    if(IfGoingThrough("VolGhostLarge_PV", step))
+    if(IfGoingThrough("VolGhostLarge_PV",step))
     {
+        //Junsang****G4cout << "GhostLarge" << G4endl;
         ExtractGhostInfo(step);
         G4int tmpID = step->GetTrack()->GetParentID();
         if((tmpID<=RHICFManager::GetInstance()->GetParticleNumber()) && (ftrack->GetParticleDefinition()->GetParticleName()=="gamma") && (RHICFManager::GetInstance()->GetNameMap()[tmpID] == "pi0"))
@@ -105,6 +108,13 @@ void RHICFSteppingAction::ExtractGhostInfo(const G4Step* step)//EXTRACT INFO FRO
     G4StepPoint* fStepPoint = step -> GetPostStepPoint();
     G4double tmpx = (fStepPoint->GetPosition().x())*(RHICFManager::GetInstance()->GetARM1Z()-120.3/10.)/(fStepPoint->GetPosition().z()/cm)/mm;
     G4double tmpy = (fStepPoint->GetPosition().y())*(RHICFManager::GetInstance()->GetARM1Z()-120.3/10.)/(fStepPoint->GetPosition().z()/cm)/mm;
+    //Junsang****G4double tmpxx = (fStepPoint->GetPosition().x());
+    //Junsang****G4cout << "X: " << tmpxx << G4endl;
+    //Junsang****G4double tmpyy = (fStepPoint->GetPosition().y());
+    //Junsang****G4cout << "Y: " << tmpy << G4endl;
+    //Junsang****G4double tmpz = (fStepPoint->GetPosition().z());
+    //Junsang****G4cout << "Z: " << tmpz << G4endl;
+
     G4AnalysisManager::Instance()->FillNtupleDColumn(8, 0, tmpx);
     G4AnalysisManager::Instance()->FillNtupleDColumn(8, 1, tmpy);
     G4AnalysisManager::Instance()->FillNtupleDColumn(8, 2, fStepPoint->GetMomentum().x()/GeV);
@@ -142,6 +152,12 @@ void RHICFSteppingAction::ExtractGhostCircleInfo(const G4Step* step)//EXTRACT IN
     G4StepPoint* fStepPoint = step -> GetPostStepPoint();
     G4double tmpx = (fStepPoint->GetPosition().x())*(RHICFManager::GetInstance()->GetARM1Z()-120.3/10.)/(fStepPoint->GetPosition().z()/cm)/mm;
     G4double tmpy = ((fStepPoint->GetPosition().y())*(RHICFManager::GetInstance()->GetARM1Z()-120.3/10.)/(fStepPoint->GetPosition().z()/cm))/mm;
+    //Junsang****G4double tmpxx = (fStepPoint->GetPosition().x());
+    //Junsang****G4cout << "X: " << tmpxx << G4endl;
+    //Junsang****G4double tmpyy = (fStepPoint->GetPosition().y());
+    //Junsang****G4cout << "Y: " << tmpy << G4endl;
+    //Junsang****G4double tmpz = (fStepPoint->GetPosition().z());
+    //Junsang****G4cout << "Z: " << tmpz << G4endl;
     G4AnalysisManager::Instance()->FillNtupleDColumn(9, 0, tmpx);
     G4AnalysisManager::Instance()->FillNtupleDColumn(9, 1, tmpy);
     G4AnalysisManager::Instance()->FillNtupleDColumn(9, 2, fStepPoint->GetMomentum().x()/GeV);
@@ -261,6 +277,7 @@ void RHICFSteppingAction::ExtractPionInfo(const G4Step* step, int tmpint)
     G4AnalysisManager::Instance()->FillNtupleIColumn(10, 10, tmpint);
     G4AnalysisManager::Instance()->FillNtupleIColumn(10, 11, stoi(FileManager::GetInstance()->GetTime()+FileManager::GetInstance()->GetPID()));
     G4AnalysisManager::Instance()->FillNtupleIColumn(10, 12, G4RunManager::GetRunManager()-> GetCurrentEvent()->GetEventID());
+    G4AnalysisManager::Instance()->FillNtupleIColumn(10, 13, track->GetTrackID());
     G4AnalysisManager::Instance()->AddNtupleRow(10);
 }
 
@@ -282,6 +299,7 @@ void RHICFSteppingAction::ExtractNeutronInfo(const G4Step* step)
     G4AnalysisManager::Instance()->FillNtupleDColumn(11, 9, RHICFManager::GetInstance()->GetEnergyMap()[track->GetTrackID()]/GeV);
     G4AnalysisManager::Instance()->FillNtupleIColumn(11, 10, stoi(FileManager::GetInstance()->GetTime()+FileManager::GetInstance()->GetPID()));
     G4AnalysisManager::Instance()->FillNtupleIColumn(11, 11, G4RunManager::GetRunManager()-> GetCurrentEvent()->GetEventID());
+    G4AnalysisManager::Instance()->FillNtupleIColumn(11, 12, track->GetTrackID());
     G4AnalysisManager::Instance()->AddNtupleRow(11);
 }
 
@@ -305,6 +323,7 @@ void RHICFSteppingAction::ExtractPionSignal(const G4Step* step, int tmpint)
     G4AnalysisManager::Instance()->FillNtupleIColumn(12, 13, tmpint);
     G4AnalysisManager::Instance()->FillNtupleIColumn(12, 14, stoi(FileManager::GetInstance()->GetTime()+FileManager::GetInstance()->GetPID()));
     G4AnalysisManager::Instance()->FillNtupleIColumn(12, 15, G4RunManager::GetRunManager()-> GetCurrentEvent()->GetEventID());
+    G4AnalysisManager::Instance()->FillNtupleIColumn(12, 16, track->GetTrackID());
     G4AnalysisManager::Instance()->AddNtupleRow(12);
 }
 
@@ -324,6 +343,7 @@ void RHICFSteppingAction::ExtractNeutronSignal(const G4Step* step)
     G4AnalysisManager::Instance()->FillNtupleDColumn(13, 9, RHICFManager::GetInstance()->GetEnergyMap()[track->GetTrackID()]/GeV);
     G4AnalysisManager::Instance()->FillNtupleIColumn(13, 10, stoi(FileManager::GetInstance()->GetTime()+FileManager::GetInstance()->GetPID()));
     G4AnalysisManager::Instance()->FillNtupleIColumn(13, 11, G4RunManager::GetRunManager()-> GetCurrentEvent()->GetEventID());
+    G4AnalysisManager::Instance()->FillNtupleIColumn(13, 12, track->GetTrackID());
     G4AnalysisManager::Instance()->AddNtupleRow(13);     
 }                                                        
 
