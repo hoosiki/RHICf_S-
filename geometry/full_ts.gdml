@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE gdml [ 
-<!ENTITY gwd "/home/hoosiki/Documents/GEOMETRY/">
+<!ENTITY gwd "PWD">
 <!ENTITY materials SYSTEM "materials.xml">
 ]>
 <gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="GDML_3_1_4/schema/gdml.xsd">
@@ -36,15 +36,15 @@
       <materialref ref="Air"/>
       <solidref ref="Log-world"/>
       <physvol>
-        <file name="/home/hoosiki/Documents/GEOMETRY/pipe_ts.gdml"/>
+        <file name="PWDpipe_ts.gdml"/>
 	<positionref ref="Pos-world"/>
       </physvol>
       <physvol>
-        <file name="/home/hoosiki/Documents/GEOMETRY/arm1-fc.gdml"/>
+        <file name="PWDarm1-fc.gdml"/>
 	<positionref ref="Pos-LHCf"/>
       </physvol>
       <physvol>
-        <file name="/home/hoosiki/Documents/GEOMETRY/zdc_star.gdml"/>
+        <file name="PWDzdc_star.gdml"/>
 	<positionref ref="Pos-ZDC"/>
       </physvol>
     </volume>
