@@ -294,8 +294,8 @@
     <sphere name="Log-central" rmin="0" rmax="3" startphi="0" deltaphi="360" starttheta="0" deltatheta="90" aunit="deg" lunit="cm"/>
 
     <!-- Ghost -->
-    <box name="GhostSmall" lunit="cm" x="10.0/(1783-12.03)" y="10.0/(1783-12.03)" z="0.001"/>
-    <box name="GhostLarge" lunit="cm" x="20.0/(1783-12.03)" y="20.0/(1783-12.03)" z="0.001"/>
+    <box name="GhostSmall" lunit="cm" x="2*4.99980/(1784.97)" y="2*4.99980/(1784.97)" z="7.1/17849.7"/>
+    <box name="GhostLarge" lunit="cm" x="4*4.99980/(1784.97)" y="4*4.99980/(1784.97)" z="7.1/17849.7"/>
 
     <!-- Circle -->
     <tube name="Circle" rmin="0." rmax="20.0/(1783-12.03)" z="0.001" deltaphi="360" startphi="0" aunit="deg" lunit="cm"/>

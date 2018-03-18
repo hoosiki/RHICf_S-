@@ -73,7 +73,7 @@ G4VPhysicalVolume* RHICFDetectorConstructionTSwoW::Construct ( )
     /*-*///SET GEOMETRY
     //Junsang****PHENIXPIPE();
     //Junsang****/*-*/STARZDCINSTALL(fWorldPhysical, G4ThreeVector(0.*cm, 0.*cm, 50*cm), fRotationY180);
-    RHICFManager::GetInstance()->SetARM1Z(1787);
+    RHICFManager::GetInstance()->SetARM1Z(1797);
     //Junsang****RHICFManager::GetInstance()->SetARM1Y((30.1*sqrt(2)+5+24)/10.);//TOP CENTER
     //Junsang****RHICFManager::GetInstance()->SetARM1Y((30.1*sqrt(2)+5)/10.);//TS CENTER
     RHICFManager::GetInstance()->SetARM1Y((30.1*sqrt(2)+5)/10.);//TS CENTER
