@@ -38,3 +38,12 @@ int Seeder::GetSeedForCRMC()
     auto GetRMDForCRMC = bind(Distribution, Engine);
     return GetRMDForCRMC();
 }
+
+unsigned int Seeder::GetSeedForROOT()
+{
+    std::random_device Seed;
+    std::mt19937_64 Engine(Seed());
+    std::uniform_int_distribution<int> Distribution(0, 4294967295);
+    auto GetRMDForROOT = bind(Distribution, Engine);
+    return GetRMDForROOT();
+}

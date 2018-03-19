@@ -72,6 +72,7 @@ class IPCenterInterface : public G4ParticleGun
         G4double fSigmaAngle;
         G4double fSigmaRange;
         G4bool fRandomizePrimary;
+        unsigned int SeedForROOT;
 
 
 };

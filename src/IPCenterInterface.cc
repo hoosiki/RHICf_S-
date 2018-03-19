@@ -9,6 +9,7 @@
 #include "G4ParticleDefinition.hh"
 #include "G4GenericMessenger.hh"
 #include "RHICFManager.hh"
+#include "Seeder.hh"
 #include "G4SystemOfUnits.hh"
 #include "TRandom.h"
 #include "TMath.h"
@@ -40,6 +41,8 @@ void IPCenterInterface::GeneratePrimaryVertex(G4Event* event)
     fPrimaryParticle-> SetPDGcode(PDGID);
     fPrimaryParticle-> SetTotalEnergy(fEnergy);
     G4ThreeVector tmpdirection;
+    
+    gRandom->SetSeed(0);
 
     G4double tmpx,tmpy;
 
@@ -48,6 +51,7 @@ void IPCenterInterface::GeneratePrimaryVertex(G4Event* event)
         tmpx = gRandom->Uniform(-fSigmaRange,fSigmaRange);
         tmpy = gRandom->Uniform(-fSigmaRange,fSigmaRange);
         tmpdirection = G4ThreeVector( tmpx, tmpy, 0.).rotate(G4ThreeVector(0., 0., 1.), 45*deg);
+        std::cout << "X: " << tmpx << "Y: " << tmpy << std::endl;
         
     }else if(Shape=="Circle")
     {
