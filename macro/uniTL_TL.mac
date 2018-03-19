@@ -1,6 +1,6 @@
 /RHICfGenerator/select ipuni
 /IPUnibeam/shape Diamond
-/IPUnibeam/sigmaRange 21
+/IPUnibeam/sigmaRange 20
 /IPUnibeam/tower Large
 /IPUnibeam/energy 100
 
