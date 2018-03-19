@@ -25,7 +25,7 @@
     <position name="Pos-central" unit="cm" x="0" y="0" z="-218.6695"/>
     <!-- Ghost -->
     <position name="PosGhostSmall" unit="cm" x="0" y="12/(1783-12.03)" z="-213.6695"/>
-    <position name="PosGhostLarge" unit="cm" x="0" y="(2.4+(30.1*sqrt(2)+5)/10.)*5/(1783-12.03)" z="-213.6695"/>
+    <position name="PosGhostLarge" unit="cm" x="0" y="(2.4+(30.1*sqrt(2)+5)/10.)/2.0000795/1784.97" z="-213.6695"/>
     <!-- Circle -->
     <position name="PosCircle" unit="cm" x="0" y="0" z="-212.6695"/>
     <!-- 3inches Beam pipe z=0cm -->
