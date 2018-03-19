@@ -51,7 +51,6 @@ void IPCenterInterface::GeneratePrimaryVertex(G4Event* event)
         tmpx = gRandom->Uniform(-fSigmaRange,fSigmaRange);
         tmpy = gRandom->Uniform(-fSigmaRange,fSigmaRange);
         tmpdirection = G4ThreeVector( tmpx, tmpy, 0.).rotate(G4ThreeVector(0., 0., 1.), 45*deg);
-        std::cout << "X: " << tmpx << "Y: " << tmpy << std::endl;
         
     }else if(Shape=="Circle")
     {
