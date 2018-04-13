@@ -1,18 +1,11 @@
-#/RHICfGenerator/select ipuni
-#/IPUnibeam/shape Diamond
-#/IPUnibeam/sigmaRange 20
-#/IPUnibeam/tower Large
-#/IPUnibeam/energy 200
-
-
 /RHICfGenerator/select testuni
-/Testbeam/sigmaRange 10
+/Testbeam/particle gamma
+/Testbeam/sigmaRange 20
 /Testbeam/shape Circle
 /Testbeam/tower Large
-/Testbeam/energy 200
-/tracking/verbose 1
+/Testbeam/energy 100
 
 
 
-/RHICfRunAction/setFileName N_LEAKAGE200GeV
+/RHICfRunAction/setFileName GAMMA_TESTBEAMTL_TL100GeV
 /run/beamOn 1
