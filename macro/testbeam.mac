@@ -1,7 +1,7 @@
 /RHICfGenerator/select testuni
 /Testbeam/particle gamma
 /Testbeam/sigmaRange 20
-/Testbeam/shape Circle
+/Testbeam/shape Diamond
 /Testbeam/tower Large
 /Testbeam/energy 100
 
