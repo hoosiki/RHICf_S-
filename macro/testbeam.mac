@@ -8,4 +8,4 @@
 
 
 /RHICfRunAction/setFileName GAMMA_TESTBEAMTL_TL100GeV
-/run/beamOn 1
+/run/beamOn 500
