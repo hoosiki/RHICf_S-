@@ -41,6 +41,7 @@ void RHICFRunAction::BeginOfRunAction(const G4Run* run)
     Seeder* fSeeder = new Seeder;
     G4int tmpint = fSeeder->GetSeedForG4();
     G4Random::setTheSeed(tmpint);
+    //Junsang****fFile = new TFile((FileManager::GetInstance()->GetPathFortmp()+"/"+FileManager::GetInstance()->GetFileName()+".root1").c_str(), "RECREATE");
     G4AnalysisManager::Instance()->SetFileName(FileManager::GetInstance()->GetPathFortmp()+"/"+FileManager::GetInstance()->GetFileName()+".root");
     NtupleForARM1();
     NtupleForSTARZDC();

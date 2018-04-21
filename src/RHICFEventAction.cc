@@ -38,6 +38,7 @@ RHICFEventAction::~RHICFEventAction()
 
 void RHICFEventAction::BeginOfEventAction(const G4Event*)
 {
+    RHICFManager::GetInstance()->Initialize();
 }     
 
 
@@ -100,7 +101,8 @@ void RHICFEventAction::ExtractDEValueForARM1(G4HCofThisEvent* hc, const G4Event*
         G4String string;
         if(i<10) string = "Vol-gso-scintillator-small0" + std::to_string(i);
         if(i>9) string = "Vol-gso-scintillator-small" + std::to_string(i);
-        G4AnalysisManager::Instance()->FillNtupleDColumn(0, i, GetDEValue(hc, string, 0)/MeV);
+        //Junsang****G4AnalysisManager::Instance()->FillNtupleDColumn(0, i, GetDEValue(hc, string, 0)/MeV);
+        G4AnalysisManager::Instance()->FillNtupleDColumn(0, i, (RHICFManager::GetInstance()->GetdEwithLightCollection())[0][i]/MeV);
     } 
     for (int i = 16; i < 32; i++) 
     {
@@ -108,7 +110,8 @@ void RHICFEventAction::ExtractDEValueForARM1(G4HCofThisEvent* hc, const G4Event*
         G4int j = i-16;
         if(j<10) string = "Vol-gso-scintillator-large0" + std::to_string(j);
         if(j>9) string = "Vol-gso-scintillator-large" + std::to_string(j);
-        G4AnalysisManager::Instance()->FillNtupleDColumn(0, i, GetDEValue(hc, string, 0)/MeV);
+        //Junsang****G4AnalysisManager::Instance()->FillNtupleDColumn(0, i, GetDEValue(hc, string, 0)/MeV);
+        G4AnalysisManager::Instance()->FillNtupleDColumn(0, i, (RHICFManager::GetInstance()->GetdEwithLightCollection())[1][j]/MeV);
     } 
 
     G4double tmpDE = 0.;

@@ -24,6 +24,7 @@ class RHICFSteppingAction : public G4UserSteppingAction
         void ExtractPionSignal(const G4Step* step, int tmpint);
         void ExtractNeutronInfo(const G4Step* step);
         void ExtractPionInfo(const G4Step* step, int tmpint);
+        void RecordEnergyDeposit(const int, const int, const G4Step*);
         bool IfGoingThrough(G4String, const G4Step*);
 };
 

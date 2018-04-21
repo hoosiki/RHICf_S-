@@ -37,7 +37,11 @@ file(GLOB hepmc ${HEPMC_LIBRARY}/libHepMC.so)
 # Locate sources and headers for this project
 #
 include_directories(${PROJECT_SOURCE_DIR}/include 
-    ${Geant4_INCLUDE_DIR} ${ROOT_INCLUDE_DIR} ${HEPMC_INCLUDE_DIR} )
+    ${Geant4_INCLUDE_DIR} ${ROOT_INCLUDE_DIR} ${HEPMC_INCLUDE_DIR} $ENV{ROOTSYS}/include $ENV{LIBRARY}/rhicflib/include $ENV{LIBRARY}/lhcflib/dict/include $ENV{LIBRARY}/lhcflib/func/include $ENV{LIBRARY}/suzukilib $ENV{LIBRARY}/starlib/include)
+
+file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc ${PROJECT_SOURCE_DIR}/src/*.cpp $ENV{LIBRARY}/rhicflib/src/*.cpp $ENV{LIBRARY}/lhcflib/dict/src/*.cpp $ENV{LIBRARY}/lhcflib/func/src/*.cpp $ENV{LIBRARY}/suzukilib/*.cpp $ENV{LIBRARY}/starlib/src/*.cpp)
+file(GLOB headers ${HEPMC_INCLUDE_DIRS}/*.h ${PROJECT_SOURCE_DIR}/include/*.hh ${PROJECT_SOURCE_DIR}/include/*.h $ENV{ROOTSYS}/include/*.hh ${PROJECT_SOURCE_DIR}/include/*.h $ENV{LIBRARY}/rhicflib/include/*.h $ENV{LIBRARY}/lhcflib/dict/include/*.h $ENV{LIBRARY}/lhcflib/func/include/*.h $ENV{LIBRARY}/suzukilib/*.hpp $ENV{LIBRARY}/starlib/include/*.hpp) 
+file(GLOB libraries $ENV{ROOTSYS}/lib/*.so)
 
 file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc)
 file(GLOB headers ${HEPMC_INCLUDE_DIRS}/*.h ${PROJECT_SOURCE_DIR}/include/*.hh)
@@ -78,7 +82,7 @@ endforeach()
 #set(CMAKE_C_COMPILER "/home/hoosiki/Packages/gcc/bin/gcc")
 #set(CMAKE_CXX_COMPILER "/home/hoosiki/Packages/gcc/bin/g++")
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} CXXFLAGS=-D_GLIBCXX_HAVE_FENV_H")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -D_GLIBCXX_USE_C99")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -w -std=c++11 -D_GLIBCXX_USE_C99")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
 
 #----------------------------------------------------------------------------

@@ -1,10 +1,15 @@
 #include "RHICFSteppingAction.hh"
+#include <array>
+#include <string>
+#include <sstream>
+#include <map>
 #include "globals.hh"
 #include "G4Track.hh"
 #include "RHICFManager.hh"
 #include "G4StepPoint.hh"
 #include "G4RunManager.hh"
 #include "G4SystemOfUnits.hh"
+#include <functional>
 #include "G4Step.hh"
 #include "G4PhysicalVolumeStore.hh"
 #include "G4Threading.hh"
@@ -22,13 +27,24 @@ RHICFSteppingAction::~RHICFSteppingAction()
 
 void RHICFSteppingAction::UserSteppingAction(const G4Step* step)
 {
+
     G4Track* ftrack = step->GetTrack();
     G4StepPoint* fStepPoint = step -> GetPreStepPoint();
     G4StepPoint* fStepPostPoint = step -> GetPostStepPoint();
-    G4String prePhysical;
-    G4String postPhysical;
+
+    G4String PrePhysicalVolume;
+    G4String PostPhysicalVolume;
     G4String nextVolName;
-    if (ftrack->GetNextVolume()) nextVolName =  ftrack->GetNextVolume()->GetName();
+    if (ftrack->GetNextVolume())
+    {
+        PrePhysicalVolume = fStepPoint->GetPhysicalVolume()->GetName();
+        PostPhysicalVolume = fStepPostPoint->GetPhysicalVolume()->GetName();
+    }
+
+    if ((RHICFManager::GetInstance()->GetVolumeMap()).count(PrePhysicalVolume)==1 || (RHICFManager::GetInstance()->GetVolumeMap()).count(PrePhysicalVolume)==1)
+    {
+        RecordEnergyDeposit(((RHICFManager::GetInstance()->GetVolumeMap()))[PrePhysicalVolume].first, ((RHICFManager::GetInstance()->GetVolumeMap()))[PrePhysicalVolume].second, step);
+    }
 
     if(IfGoingThrough("VolCircle_PV",step))
     {
@@ -372,4 +388,16 @@ bool RHICFSteppingAction::IfGoingThrough(G4String physicalname, const G4Step* st
     }
 
     return false;
+}
+
+void RHICFSteppingAction::RecordEnergyDeposit(const int iTower, const int iLayer, const G4Step* Step)
+{
+    G4StepPoint* p1 = Step->GetPreStepPoint();
+    G4ThreeVector coord1 = p1->GetPosition();
+    const G4AffineTransform transformation = p1->GetTouchable()-> GetHistory()->GetTopTransform();
+    G4ThreeVector localPosition = transformation.TransformPoint(coord1);
+    G4double localx=localPosition.x()*CLHEP::mm;
+    G4double localy=localPosition.y()*CLHEP::mm;
+    /// Rotate -90degrees
+    (RHICFManager::GetInstance()->GetdEwithLightCollection())[iTower][iLayer] += (Step->GetTotalEnergyDeposit())*(RHICFManager::GetInstance()->GetLightCollection())[iTower][iLayer]->Interpolate(localy,-localx);
 }

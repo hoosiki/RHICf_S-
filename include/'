@@ -3,13 +3,9 @@
 
 
 #include "globals.hh"
-#include "TGraph2D.h"
 #include "G4SystemOfUnits.hh"
-#include "TFile.h"
-#include <utility>
 #include <cstdlib>
 #include <iostream>
-#include <string>
 #include <map>
 #include <array>
 #include <vector>
@@ -26,12 +22,8 @@ class RHICFManager {
         G4String fParticleName;
         G4int fParticleNum;
         static RHICFManager* fRHICFManager;
-        std::array<std::array<G4double, 16>, 2> dEwithLightCollection;
-        TFile* fTable;
-        std::array<std::array<TGraph2D*, 16>,2> fLightCollection;
-        std::map<G4String, std::pair<int,int>> fVolumeMap;
+        std::vector<std::array<G4double, 16>> dEwithLightCollection;
         
-
 
     public:
         
@@ -50,11 +42,7 @@ class RHICFManager {
         void ShowDInfo(G4String, G4double);
         void ShowIInfo(G4String, G4int);
         void ShowSInfo(G4String, G4String);
-        void SetTables();
-        void Initialize();
-        void SetMap();
-        std::array<std::array<G4double, 16>, 2>& GetdEwithLightCollection(){return dEwithLightCollection;};
-        std::array<std::array<TGraph2D*, 16>,2>& GetLightCollection(){return  fLightCollection;};
+        std::vector<std::array<G4double, 16>> GetdEwithLightCollection(){return dEwithLightCollection;};
         G4double GetARM1X(){ return ARM1X;};
         G4double GetARM1Y(){ return ARM1Y;};
         G4double GetARM1Z(){ return ARM1Z;};
@@ -64,7 +52,6 @@ class RHICFManager {
         G4String GetParticleName(){ return fParticleName;};
         G4int GetParticleNumber(){ return fParticleNum;};
         G4bool trigger;
-        std::map<G4String, std::pair<int,int>> GetVolumeMap(){return fVolumeMap;};
         std::map<G4int, G4String> GetNameMap(){ return MapName;};
         std::map<G4int, G4double> GetPXMap(){ return MapPX;};
         std::map<G4int, G4double> GetPYMap(){ return MapPY;};
