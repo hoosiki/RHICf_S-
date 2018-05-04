@@ -1,0 +1,3 @@
+/RHICfGenerator/select pythia
+/RHICfRunAction/setFileName P_TOPwithLC
+/run/beamOn 1000
