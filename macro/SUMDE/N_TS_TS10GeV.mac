@@ -1,0 +1,5 @@
+/RHICfGenerator/select ipuni
+/RHICfRunAction/setFileName SUMDE_N_TS_TS10GeV
+/IPUnibeam/tower Small
+/IPUnibeam/energy 10
+/run/beamOn 500
